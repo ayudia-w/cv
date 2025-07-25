@@ -1,81 +1,25 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pipit Ayudiawati - CV</title>
+  <!-- Bootstrap and Font Awesome for styling -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-
-    body {
-      background: linear-gradient(to bottom right, #e0f7fa, #f1f8e9);
-      font-family: 'Inter', sans-serif;
-      color: #333;
-    }
-
-    .card {
-      border: none;
-      border-radius: 20px;
-      background: #fff;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-    }
-
-    .section-title {
-      border-left: 4px solid #00796b;
-      padding-left: 12px;
-      margin: 40px 0 20px;
-      font-weight: 600;
-      font-size: 1.5rem;
-      color: #00796b;
-    }
-
-    .btn-whatsapp {
-      background-color: #25D366;
-      color: white;
-      font-weight: 600;
-      border-radius: 30px;
-      padding: 10px 24px;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn-whatsapp:hover {
-      background-color: #1ebe5d;
-      color: white;
-    }
-
-    .entry .date {
-      font-size: 0.9rem;
-      color: #6c757d;
-    }
-
-    .entry ul {
-      margin: 0.25rem 0 0 1rem;
-    }
-
-    a {
-      text-decoration: none;
-      color: #00695c;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 576px) {
-      .entry .date {
-        display: block;
-        margin-top: 4px;
-      }
-    }
-  </style>
+  <link href="style.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- html2pdf.js library for PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
   <div class="container my-5">
-    <div class="card p-5">
+    <!-- The 'cv-content' ID is used by the script to identify what to print -->
+    <div class="card p-5" id="cv-content">
       <div class="text-center">
         <h1 class="mb-1">Pipit Ayudiawati</h1>
         <p class="text-muted">Yogyakarta, Indonesia</p>
@@ -88,48 +32,58 @@
         </a>
       </div>
 
-      <h3 class="section-title">Work Experience</h3>
-      <div class="entry mb-3">
-        <strong>Cashier</strong> <span class="date float-end">12/2023 - 12/2024</span><br/>
-        <em>Matahari Department Store</em>
-        <ul>
-          <li>Processed transactions efficiently using the ETP system.</li>
-          <li>Provided customer service including memberships and promos.</li>
-        </ul>
-      </div>
-      <div class="entry mb-3">
-        <strong>Merchandiser</strong> <span class="date float-end">09/2019 - 02/2021</span><br/>
-        <em>Fluorescence & Solemn – Jakarta</em>
-        <ul>
-          <li>Tracked sell-through rates and optimized inventory.</li>
-        </ul>
-      </div>
-      <div class="entry mb-3">
-        <strong>Production Supervisor</strong> <span class="date float-end">08/2011 - 06/2013</span><br/>
-        <em>Fluorescence – Jakarta</em>
-        <ul>
-          <li>Managed 30 craftsmen and maintained production quality.</li>
-        </ul>
+      <!-- The Download PDF button is placed here -->
+      <div class="text-center mt-3 mb-4">
+        <button id="download-pdf" class="btn btn-download-pdf">
+            <i class="fas fa-file-pdf me-2"></i>Download this CV as PDF
+        </button>
       </div>
 
-      <h3 class="section-title">Projects & Internship</h3>
-      <div class="entry mb-3">
-        <strong>Content Developer (Project-based)</strong> <span class="date float-end">04/2021 - 02/2022</span><br/>
-        <em>Nural Learning</em>
-        <ul>
-          <li>Designed e-learning materials and assessment systems.</li>
-          <li>Contributed to project QA and development.</li>
-        </ul>
-      </div>
-      <div class="entry mb-3">
-        <strong>Internship Web Developer</strong> <span class="date float-end">08/2018 - 08/2019</span><br/>
-        <em>Litbang Sabo Kementerian PU</em>
-        <ul>
-          <li>Developed internal web using CodeIgniter & Bootstrap.</li>
-          <li>Built and managed MySQL database.</li>
-        </ul>
-      </div>
+ <h3 class="section-title">Work Experience</h3>
+<div class="entry mb-3">
+  <strong>Merchandiser</strong> <span class="date float-end">09/2019 - 02/2021</span><br/>
+  <em>Fluorescence & Solemn – SOGO, Metro, Seibu Jakarta</em>
+  <ul>
+    <li>Analyzed product performance and tracked sell-through rates monthly and seasonally.</li>
+    <li>Planned promotions and discounts based on sales trends and events.</li>
+    <li>Managed product displays and inventory distribution across 20 stores.</li>
+  </ul>
+</div>
+<div class="entry mb-3">
+  <strong>Production Supervisor</strong> <span class="date float-end">08/2011 - 06/2013</span><br/>
+  <em>Fluorescence – SOGO, Metro, Seibu Jakarta</em>
+  <ul>
+    <li>Coordinated production schedules for 30 craftsmen to ensure timely workflow.</li>
+    <li>Oversaw the daily output of approximately 30 dresses, ensuring high quality standards.</li>
+  </ul>
+</div>
 
+<h3 class="section-title">Additional Experience</h3>
+<div class="entry mb-3">
+  <strong>Cashier (Seasonal)</strong> <span class="date float-end">12/2023 - 12/2024</span><br/>
+  <em>Matahari Department Store</em>
+  <ul>
+    <li>Handled transactions accurately using the ETP system.</li>
+    <li>Provided excellent customer service including membership, promotion, and event information.</li>
+  </ul>
+</div>
+<div class="entry mb-3">
+  <strong>Content Developer (Project-based)</strong> <span class="date float-end">04/2021 - 02/2022</span><br/>
+  <em>Nural Learning</em>
+  <ul>
+    <li>Created e-learning materials for IT subjects tailored to learner needs.</li>
+    <li>Designed student assessments and supported project development and quality assurance.</li>
+  </ul>
+</div>
+<div class="entry mb-3">
+  <strong>Internship Web Developer</strong> <span class="date float-end">08/2018 - 08/2019</span><br/>
+  <em>Litbang Sabo, Ministry of Public Works</em>
+  <ul>
+    <li>Developed internal web applications using CodeIgniter and Bootstrap.</li>
+    <li>Built and maintained MySQL databases to support internal operations.</li>
+  </ul>
+</div>
+      
       <h3 class="section-title">Education</h3>
       <div class="entry mb-3">
         <strong>Informatics Engineering Education</strong><br/>
@@ -142,19 +96,54 @@
         <strong>Science (IPA)</strong><br/>
         <em>SMA Negeri 3 Yogyakarta (2009–2011)</em>
         <ul>
-          <li>Active in Padmanaba events as team coordinator.</li>
+          <li>Actively participated in Padmanaba events.</li>
         </ul>
       </div>
 
       <h3 class="section-title">Certificates</h3>
       <ul>
         <li><a href="https://cert.efset.org/gB2kDC" target="_blank">EF SET English Certificate (C2 Proficient)</a></li>
+        <li><a href="https://coursera.org/share/eedd3713ac0a834bd09f05dead0280a0" target="_blank">Introduction to Data Analysis using Microsoft Excel - Coursera
+</a></li>
         <li><a href="https://coursera.org/share/94dee93d9043f1b789f15f3aaa3dc15a" target="_blank">Build a Full Website using WordPress - Coursera</a></li>
-        <li><a href="https://drive.google.com/file/d/1H-jTJwhK64aTWzQEI-zCjzho1XHHnIZx/view?usp=sharing" target="_blank">Fundamental Data Science – KOMDIGI</a></li>
-      </ul>
+        </ul>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Wait for the document to be fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+      // Get the button element by its ID
+      const downloadButton = document.getElementById('download-pdf');
+      
+      // Add a click event listener to the button
+      downloadButton.addEventListener('click', function () {
+        // Get the element that contains the CV content
+        const element = document.getElementById('cv-content');
+        
+        // Find the button's container to hide it
+        const buttonContainer = downloadButton.parentElement;
+        
+        // Temporarily hide the download button's container so it doesn't appear in the PDF
+        buttonContainer.style.display = 'none';
+
+        // Options for the PDF generation
+        const opt = {
+          margin:       0.5,
+          filename:     'Pipit_Ayudiawati_CV.pdf',
+          image:        { type: 'jpeg', quality: 0.98 },
+          html2canvas:  { scale: 2, useCORS: true }, // Higher scale for better quality
+          jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        // Use html2pdf to generate the PDF from the element with the specified options
+        html2pdf().set(opt).from(element).save().then(() => {
+            // After the PDF is saved, make the button container visible again
+            buttonContainer.style.display = 'block';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
