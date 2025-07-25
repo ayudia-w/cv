@@ -1,24 +1,150 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pipit Ayudiawati - CV</title>
-  <!-- Bootstrap and Font Awesome for styling -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
   
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   
-  <!-- html2pdf.js library for PDF generation -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <style>
+    /* Custom CSS for the CV page - Polished & Formal */
+    :root {
+      --primary-color: #34568B; /* A professional, muted blue */
+      --secondary-color: #4a4a4a; /* Dark gray for body text */
+      --light-gray: #f8f9fa;
+      --border-color: #e9ecef;
+      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    }
+
+    body {
+      background-color: var(--light-gray);
+      font-family: 'Inter', sans-serif;
+      color: var(--secondary-color);
+      line-height: 1.6;
+    }
+
+    .card {
+      background-color: white;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: var(--card-shadow);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: var(--primary-color);
+        font-weight: 700;
+    }
+
+    a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: #2a436e; /* A darker shade of the primary color */
+        text-decoration: underline;
+    }
+
+    .section-title {
+      color: var(--primary-color);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding-bottom: 10px;
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+    }
+
+    .entry {
+        margin-bottom: 1.75rem;
+        padding-left: 15px;
+        border-left: 3px solid var(--border-color);
+        page-break-inside: avoid; /* This is the key fix to prevent ugly cuts */
+    }
+
+    .entry strong {
+      color: #343a40;
+      font-size: 1.1rem;
+    }
+
+    .entry em {
+        color: #555;
+        font-style: normal;
+    }
+
+    ul {
+      padding-left: 20px;
+      list-style-type: none; /* Remove default bullets */
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 25px; /* Space for custom bullet */
+    }
+
+    /* Custom bullet points for lists */
+    ul li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    /* Button Styling */
+    .btn {
+        border-radius: 25px; /* Pill-shaped buttons */
+        padding: 10px 20px;
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: white;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1EBE57;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-download-pdf {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .btn-download-pdf:hover {
+        background-color: #2a436e;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(52, 86, 139, 0.3);
+    }
+  </style>
 </head>
 <body>
   <div class="container my-5">
-    <!-- The 'cv-content' ID is used by the script to identify what to print -->
     <div class="card p-5" id="cv-content">
       <div class="text-center">
         <h1 class="mb-1">Pipit Ayudiawati</h1>
@@ -32,57 +158,56 @@
         </a>
       </div>
 
-      <!-- The Download PDF button is placed here -->
       <div class="text-center mt-3 mb-4">
         <button id="download-pdf" class="btn btn-download-pdf">
             <i class="fas fa-file-pdf me-2"></i>Download this CV as PDF
         </button>
       </div>
 
- <h3 class="section-title">Work Experience</h3>
-<div class="entry mb-3">
-  <strong>Merchandiser</strong> <span class="date float-end">09/2019 - 02/2021</span><br/>
-  <em>Fluorescence & Solemn – SOGO, Metro, Seibu Jakarta</em>
-  <ul>
-    <li>Analyzed product performance and tracked sell-through rates monthly and seasonally.</li>
-    <li>Planned promotions and discounts based on sales trends and events.</li>
-    <li>Managed product displays and inventory distribution across 20 stores.</li>
-  </ul>
-</div>
-<div class="entry mb-3">
-  <strong>Production Supervisor</strong> <span class="date float-end">08/2011 - 06/2013</span><br/>
-  <em>Fluorescence – SOGO, Metro, Seibu Jakarta</em>
-  <ul>
-    <li>Coordinated production schedules for 30 craftsmen to ensure timely workflow.</li>
-    <li>Oversaw the daily output of approximately 30 dresses, ensuring high quality standards.</li>
-  </ul>
-</div>
+      <h3 class="section-title">Work Experience</h3>
+      <div class="entry mb-3">
+        <strong>Merchandiser</strong> <span class="date float-end">09/2019 - 02/2021</span><br/>
+        <em>Fluorescence & Solemn – SOGO, Metro, Seibu Jakarta</em>
+        <ul>
+          <li>Analyzed product performance and tracked sell-through rates monthly and seasonally.</li>
+          <li>Planned promotions and discounts based on sales trends and events.</li>
+          <li>Managed product displays and inventory distribution across 20 stores.</li>
+        </ul>
+      </div>
+      <div class="entry mb-3">
+        <strong>Production Supervisor</strong> <span class="date float-end">08/2011 - 06/2013</span><br/>
+        <em>Fluorescence – SOGO, Metro, Seibu Jakarta</em>
+        <ul>
+          <li>Coordinated production schedules for 30 craftsmen to ensure timely workflow.</li>
+          <li>Oversaw the daily output of approximately 30 dresses, ensuring high quality standards.</li>
+        </ul>
+      </div>
 
-<h3 class="section-title">Additional Experience</h3>
-<div class="entry mb-3">
-  <strong>Cashier (Seasonal)</strong> <span class="date float-end">12/2023 - 12/2024</span><br/>
-  <em>Matahari Department Store</em>
-  <ul>
-    <li>Handled transactions accurately using the ETP system.</li>
-    <li>Provided excellent customer service including membership, promotion, and event information.</li>
-  </ul>
-</div>
-<div class="entry mb-3">
-  <strong>Content Developer (Project-based)</strong> <span class="date float-end">04/2021 - 02/2022</span><br/>
-  <em>Nural Learning</em>
-  <ul>
-    <li>Created e-learning materials for IT subjects tailored to learner needs.</li>
-    <li>Designed student assessments and supported project development and quality assurance.</li>
-  </ul>
-</div>
-<div class="entry mb-3">
-  <strong>Internship Web Developer</strong> <span class="date float-end">08/2018 - 08/2019</span><br/>
-  <em>Litbang Sabo, Ministry of Public Works</em>
-  <ul>
-    <li>Developed internal web applications using CodeIgniter and Bootstrap.</li>
-    <li>Built and maintained MySQL databases to support internal operations.</li>
-  </ul>
-</div>
+      <h3 class="section-title">Additional Experience</h3>
+      <div class="entry mb-3">
+        <strong>Cashier (Seasonal)</strong> <span class="date float-end">12/2023 - 12/2024</span><br/>
+        <em>Matahari Department Store</em>
+        <ul>
+          <li>Handled transactions accurately using the ETP system.</li>
+          <li>Provided excellent customer service including membership, promotion, and event information.</li>
+        </ul>
+      </div>
+      <div class="entry mb-3">
+        <strong>Content Developer (Project-based)</strong> <span class="date float-end">04/2021 - 02/2022</span><br/>
+        <em>Nural Learning</em>
+        <ul>
+          <li>Created e-learning materials for IT subjects tailored to learner needs.</li>
+          <li>Designed student assessments and supported project development and quality assurance.</li>
+        </ul>
+      </div>
+      <div class="entry mb-3">
+        <strong>Internship Web Developer</strong> <span class="date float-end">08/2018 - 08/2019</span><br/>
+        <em>Litbang Sabo, Ministry of Public Works</em>
+        <ul>
+          <li>Developed internal web applications using CodeIgniter and Bootstrap.</li>
+          <li>Built and maintained MySQL databases to support internal operations.</li>
+        </ul>
+      </div>
       
       <h3 class="section-title">Education</h3>
       <div class="entry mb-3">
@@ -101,16 +226,17 @@
       </div>
 
       <h3 class="section-title">Certificates</h3>
-      <ul>
-        <li><a href="https://cert.efset.org/gB2kDC" target="_blank">EF SET English Certificate (C2 Proficient)</a></li>
-        <li><a href="https://coursera.org/share/eedd3713ac0a834bd09f05dead0280a0" target="_blank">Introduction to Data Analysis using Microsoft Excel - Coursera
-</a></li>
-        <li><a href="https://coursera.org/share/94dee93d9043f1b789f15f3aaa3dc15a" target="_blank">Build a Full Website using WordPress - Coursera</a></li>
+      <div style="page-break-inside: avoid;">
+        <ul>
+          <li><a href="https://cert.efset.org/gB2kDC" target="_blank">EF SET English Certificate (C2 Proficient)</a></li>
+          <li><a href="https://coursera.org/share/eedd3713ac0a834bd09f05dead0280a0" target="_blank">Introduction to Data Analysis using Microsoft Excel - Coursera
+      </a></li>
+          <li><a href="https://coursera.org/share/94dee93d9043f1b789f15f3aaa3dc15a" target="_blank">Build a Full Website using WordPress - Coursera</a></li>
         </ul>
+      </div>
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Wait for the document to be fully loaded
     document.addEventListener('DOMContentLoaded', function () {
